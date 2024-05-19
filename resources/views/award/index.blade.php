@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TracerStudy</title>
+    <title>Tracer Study</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Include toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -12,57 +12,98 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Include toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <style>
+        body {
+            background-color: #F5F5F5;
+            color: #000000;
+        }
+        .btn-custom {
+            background-color: #F68955;
+            border: none;
+            color: #FFFFFF;
+        }
+        .btn-custom:hover {
+            background-color: #e67842;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #FFFFFF;
+        }
+        .table th {
+            background-color: #0853A6;
+            color: #FFFFFF;
+            text-align: center;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #e8f4fd;
+        }
+        .pagination .page-link {
+            color: #0853A6;
+        }
+        .pagination .page-item.active .page-link {
+            background-color: #0853A6;
+            border-color: #0853A6;
+        }
+        .container {
+            padding-top: 50px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+    </style>
 </head>
-<body style="background: lightgray">
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <h3 class="text-center my-4">Form Award</h3>       
-                    <hr>
+<body>
+    <div class="container">
+        <div class="text-center mb-4">
+            <h3>Form Academic</h3>
+            <hr>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <a href="{{ route('award.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
                 </div>
-                <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
-                        <a href="{{ route('award.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
-                        <table class="table table-bordered">
-                            <thead>
-                              <tr>
-                                <th scope="col">Nama Award</th>
-                                <th scope="col">Nama Institusi Award</th>
-                                <th scope="col">Tingkat Award</th>
-                                <th scope="col">Tahun Award</th>
-                                <th scope="col">Deskripsi Award</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              @forelse ($awards as $award)
-                                <tr>
-                                    <td>{{ $award->nama_award }}</td>
-                                    <td>{{ $award->institusi_award }}</td>
-                                    <td>{{ $award->tingkat_award }}</td>
-                                    <td>{{ $award->tahun_award }}</td>
-                                    <td>{{ $award->deskripsi_award }}</td>
-                                    <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('award.destroy', $award->id) }}" method="POST">
-                                            <a href="{{ route('award.show', $award->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                            <a href="{{ route('award.edit', $award->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                              @empty
-                                  <div class="alert alert-danger">
-                                      Data belum Tersedia.
-                                  </div>
-                              @endforelse
-                            </tbody>
-                          </table>  
-                          {{ $awards->links() }}
-                    </div>
-                </div>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nama Award</th>
+                            <th scope="col">Nama Institusi Award</th>
+                            <th scope="col">Tingkat Award</th>
+                            <th scope="col">Tahun Award</th>
+                            <th scope="col">Deskripsi Award</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($awards as $award)
+                        <tr>
+                            <td>{{ $award->nama_award }}</td>
+                            <td>{{ $award->institusi_award }}</td>
+                            <td>{{ $award->tingkat_award }}</td>
+                            <td>{{ $award->tahun_award }}</td>
+                            <td>{{ $award->deskripsi_award }}</td>
+                            <td class="text-center">
+                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('award.destroy', $award->id) }}" method="POST">
+                                    <a href="{{ route('award.show', $award->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                    <a href="{{ route('award.edit', $award->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center alert alert-warning">Data belum Tersedia.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+                {{ $awards->links() }}                
             </div>
+            
         </div>
     </div>
     <script>
@@ -72,13 +113,13 @@
             var errorMessage = "{{ session('error') }}";
 
             if (successMessage) {
-                toastr.success(successMessage, 'BERHASIL!'); 
+                toastr.success(successMessage, 'BERHASIL!');
             } else if (errorMessage) {
-                toastr.error(errorMessage, 'GAGAL!'); 
+                toastr.error(errorMessage, 'GAGAL!');
             }
         });
     </script>
 
-
+    
 </body>
 </html>
