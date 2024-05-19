@@ -56,12 +56,9 @@ class InternshipController extends Controller
             'periode_masuk_intern'=> 'required',
             'periode_keluar_intern'=> 'required',
             'alamat_intern'=> 'required',
-            'prov_intern'=> 'required',
-            'kota_intern'=> 'required',
             'link_intern'=> 'required',
             'jns_intern'=> 'required',
-            'jabatan_intern'=> 'required',
-            'deskripsi_intern'=> 'required'
+            'jabatan_intern'=> 'required'
         ]);
 
         //create post
@@ -70,12 +67,9 @@ class InternshipController extends Controller
             'periode_masuk_intern' => $request->periode_masuk_intern,
             'periode_keluar_intern' => $request->periode_keluar_intern,
             'alamat_intern' => $request->alamat_intern,
-            'prov_intern' => $request->prov_intern,
-            'kota_intern' => $request->kota_intern,
             'link_intern' => $request->link_intern,
             'jns_intern' => $request->jns_intern,
-            'jabatan_intern' => $request->jabatan_intern,
-            'deskripsi_intern' => $request->deskripsi_intern
+            'jabatan_intern' => $request->jabatan_intern
         ]);
 
         //redirect to index
@@ -126,12 +120,9 @@ class InternshipController extends Controller
             'periode_masuk_intern'=> 'required',
             'periode_keluar_intern'=> 'required',
             'alamat_intern'=> 'required',
-            'prov_intern'=> 'required',
-            'kota_intern'=> 'required',
             'link_intern'=> 'required',
             'jns_intern'=> 'required',
-            'jabatan_intern'=> 'required',
-            'deskripsi_intern'=> 'required'
+            'jabatan_intern'=> 'required'
         ]);
 
         //get post by ID
@@ -142,12 +133,9 @@ class InternshipController extends Controller
                 'periode_masuk_intern' => $request->periode_masuk_intern,
                 'periode_keluar_intern' => $request->periode_keluar_intern,
                 'alamat_intern' => $request->alamat_intern,
-                'prov_intern' => $request->prov_intern,
-                'kota_intern' => $request->kota_intern,
                 'link_intern' => $request->link_intern,
                 'jns_intern' => $request->jns_intern,
-                'jabatan_intern' => $request->jabatan_intern,
-                'deskripsi_intern' => $request->deskripsi_intern
+                'jabatan_intern' => $request->jabatan_intern
         ]);
 
         //redirect to index

@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <style>
         body {
-            background-color: #F5F5F5;
+            background-color: #EFF7FF;
             color: #000000;
         }
         .btn-custom {

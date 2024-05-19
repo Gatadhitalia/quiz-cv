@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <style>
         body {
-            background-color: #F5F5F5;
+            background-color: #EFF7FF;
             color: #000000;
         }
         .btn-custom {
@@ -71,13 +71,10 @@
                             <th scope="col">Nama Instansi</th>
                             <th scope="col">Periode Masuk</th>
                             <th scope="col">Periode Keluar</th>
-                            <th scope="col">Alamat Instansi</th>
-                            <th scope="col">Provinsi</th>
-                            <th scope="col">Kota</th>                                
+                            <th scope="col">Alamat Instansi</th>                             
                             <th scope="col">Website</th>
                             <th scope="col">Jenis Pekerjaan</th>
-                            <th scope="col">Jabatan</th>                                
-                            <th scope="col">Deskripsi Jabatan</th>
+                            <th scope="col">Jabatan</th>            
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -88,12 +85,9 @@
                                 <td>{{ $job->periode_masuk_job }}</td>
                                 <td>{{ $job->periode_keluar_job }}</td>
                                 <td>{{ $job->alamat_job }}</td>
-                                <td>{{ $job->prov_job }}</td>
-                                <td>{{ $job->kota_job }}</td>
                                 <td>{{ $job->link_job }}</td>
                                 <td>{{ $job->jns_job }}</td>
                                 <td>{{ $job->jabatan_job }}</td>
-                                <td>{{ $job->deskripsi_job }}</td>
                                 <td class="text-center">
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('job.destroy', $job->id) }}" method="POST">
                                         <a href="{{ route('job.show', $job->id) }}" class="btn btn-sm btn-dark">SHOW</a>
@@ -106,7 +100,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="11" class="text-center alert alert-warning">Data belum Tersedia.</td>
+                                <td colspan="8" class="text-center alert alert-warning">Data belum Tersedia.</td>
                             </tr>
                         @endforelse
                     </tbody>

@@ -19,11 +19,8 @@ class job extends Model
         'periode_masuk_job',
         'periode_keluar_job',
         'alamat_job',
-        'prov_job',
-        'kota_job',
         'link_job',
         'jns_job',
         'jabatan_job',
-        'deskripsi_job'
     ];
 }

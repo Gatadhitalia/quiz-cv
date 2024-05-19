@@ -17,12 +17,9 @@ return new class extends Migration
             $table->string('periode_masuk_job');            
             $table->string('periode_keluar_job');
             $table->string('alamat_job');
-            $table->string('prov_job');
-            $table->string('kota_job');
             $table->string('link_job');
             $table->string('jns_job');
             $table->string('jabatan_job');
-            $table->longText('deskripsi_job');
             $table->timestamps();
         });
     }

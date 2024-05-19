@@ -56,12 +56,9 @@ class jobController extends Controller
             'periode_masuk_job'=> 'required',
             'periode_keluar_job'=> 'required',
             'alamat_job'=> 'required',
-            'prov_job'=> 'required',
-            'kota_job'=> 'required',
             'link_job'=> 'required',
             'jns_job'=> 'required',
-            'jabatan_job'=> 'required',
-            'deskripsi_job'=> 'required'
+            'jabatan_job'=> 'required'
         ]);
 
         //create post
@@ -70,12 +67,9 @@ class jobController extends Controller
             'periode_masuk_job' => $request->periode_masuk_job,
             'periode_keluar_job' => $request->periode_keluar_job,
             'alamat_job' => $request->alamat_job,
-            'prov_job' => $request->prov_job,
-            'kota_job' => $request->kota_job,
             'link_job' => $request->link_job,
             'jns_job' => $request->jns_job,
-            'jabatan_job' => $request->jabatan_job,
-            'deskripsi_job' => $request->deskripsi_job
+            'jabatan_job' => $request->jabatan_job
         ]);
 
         //redirect to index
@@ -126,28 +120,22 @@ class jobController extends Controller
             'periode_masuk_job'=> 'required',
             'periode_keluar_job'=> 'required',
             'alamat_job'=> 'required',
-            'prov_job'=> 'required',
-            'kota_job'=> 'required',
             'link_job'=> 'required',
             'jns_job'=> 'required',
-            'jabatan_job'=> 'required',
-            'deskripsi_job'=> 'required'
+            'jabatan_job'=> 'required'
         ]);
 
         //get post by ID
         $post = job::findOrFail($id);
             //update post without image
             $post->update([
-            'nama_job' => $request->nama_job,
-            'periode_masuk_job' => $request->periode_masuk_job,
-            'periode_keluar_job' => $request->periode_keluar_job,
-            'alamat_job' => $request->alamat_job,
-            'prov_job' => $request->prov_job,
-            'kota_job' => $request->kota_job,
-            'link_job' => $request->link_job,
-            'jns_job' => $request->jns_job,
-            'jabatan_job' => $request->jabatan_job,
-            'deskripsi_job' => $request->deskripsi_job
+                'nama_job' => $request->nama_job,
+                'periode_masuk_job' => $request->periode_masuk_job,
+                'periode_keluar_job' => $request->periode_keluar_job,
+                'alamat_job' => $request->alamat_job,
+                'link_job' => $request->link_job,
+                'jns_job' => $request->jns_job,
+                'jabatan_job' => $request->jabatan_job
         ]);
 
         //redirect to index

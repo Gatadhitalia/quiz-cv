@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tracer Study</title>
+    <title>TracerStudy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #F5F5F5;
+            background-color: #EFF7FF;
             color: #333;
         }
         .card {
@@ -25,12 +25,11 @@
     </style>
 </head>
 <body>
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h5 class="card-header text-white text-center">Academic Information</h5>
+                    <h5 class="card-header text-white text-center">Academic</h5>
                     <div class="card-body">    
                         <p class="card-text"><strong>NIM:</strong> {!! $academic->nim !!}</p>
                         <p class="card-text"><strong>Nama Mahasiswa:</strong> {!! $academic->nama_mhs !!}</p>
@@ -42,9 +41,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

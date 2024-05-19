@@ -126,11 +126,12 @@ class OrganizationController extends Controller
         $organization = organization::findOrFail($id);
             //update post without image
             $organization->update([
-                'nama_award' => $request->nama_award,
-                'institusi_award' => $request->institusi_award,
-                'tingkat_award' => $request->tingkat_award,
-                'tahun_award' => $request->tahun_award,
-                'deskripsi_award' => $request->deskripsi_award
+                'nama_org' => $request->nama_org,
+                'periode_org' => $request->periode_org,
+                'link_org' => $request->link_org,
+                'tingkat_org' => $request->tingkat_org,
+                'jns_org' => $request->jns_org,
+                'jabatan_org' => $request->jabatan_org
         ]);
 
         //redirect to index

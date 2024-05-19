@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tracer Study</title>
+    <title>TracerStudy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Include toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <style>
         body {
-            background-color: #F5F5F5;
+            background-color: #EFF7FF;
             color: #000000;
         }
         .btn-custom {
@@ -57,27 +57,23 @@
 <body>
     <div class="container">
         <div class="text-center mb-4">
-            <h3>Form Academic</h3>
+            <h3>Form Internship</h3>
             <hr>
         </div>
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <a href="{{ route('academic.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
+                    <a href="{{ route('internship.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
                 </div>
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Nama Instansi</th>
-                            <th scope="col">Periode Masuk</th>
-                            <th scope="col">Periode Keluar</th>
-                            <th scope="col">Alamat Instansi</th>
-                            <th scope="col">Provinsi</th>
-                            <th scope="col">Kota</th>                                
+                            <th scope="col">Periode</th>
+                            <th scope="col">Alamat Instansi</th>                               
                             <th scope="col">Website</th>
                             <th scope="col">Jenis Pekerjaan</th>
-                            <th scope="col">Jabatan</th>                                
-                            <th scope="col">Deskripsi Jabatan</th>
+                            <th scope="col">Jabatan</th>           
                             <th scope="col">Aksi</th>    
                         </tr>
                     </thead>
@@ -85,15 +81,11 @@
                         @forelse ($internships as $internship)
                             <tr>
                                 <td>{{ $internship->nama_intern }}</td>
-                                <td>{{ $internship->periode_masuk_intern }}</td>
-                                <td>{{ $internship->periode_keluar_intern }}</td>
+                                <td>{{ $internship->periode_masuk_intern }} / {{ $internship->periode_keluar_intern }}</td>
                                 <td>{{ $internship->alamat_intern }}</td>
-                                <td>{{ $internship->prov_intern }}</td>
-                                <td>{{ $internship->kota_intern }}</td>
                                 <td>{{ $internship->link_intern }}</td>
                                 <td>{{ $internship->jns_intern }}</td>
                                 <td>{{ $internship->jabatan_intern }}</td>
-                                <td>{{ $internship->deskripsi_intern }}</td>
                                 <td class="text-center">
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('internship.destroy', $internship->id) }}" method="POST">
                                         <a href="{{ route('internship.show', $internship->id) }}" class="btn btn-sm btn-dark">SHOW</a>
@@ -106,7 +98,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="11" class="text-center alert alert-warning">Data belum Tersedia.</td>
+                                <td colspan="7" class="text-center alert alert-warning">Data belum Tersedia.</td>
                             </tr>
                         @endforelse
                     </tbody>
