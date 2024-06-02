@@ -71,7 +71,7 @@
                 <b><h1>Award</h1></b>    
                 <a href="{{ route('award.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
                 </div>
-                <div class="form">
+                <div class="form" style="overflow-x: auto">
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>

@@ -72,7 +72,7 @@
                     <b><h1>Academic</h1></b>
                     <a href="{{ route('academic.index') }}" class="btn btn-md btn-custom">EDIT</a>
                 </div>
-                <div class="form">
+                <div class="form" style="overflow-x: auto">
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
@@ -115,7 +115,7 @@
                     <b><h1>Job</h1></b>
                     <a href="{{ route('job.index') }}" class="btn btn-md btn-custom">EDIT</a>
                 </div>
-                <div class="form">
+                <div class="form" style="overflow-x: auto">
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -161,7 +161,7 @@
                     <b><h1>Internship</h1></b>
                     <a href="{{ route('internship.index') }}" class="btn btn-md btn-custom">EDIT</a>
                 </div>
-                <div class="form">
+                <div class="form" style="overflow-x: auto">
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -205,7 +205,7 @@
                     <b><h1>Organization</h1></b>
                     <a href="{{ route('organization.index') }}" class="btn btn-md btn-custom">EDIT</a>
                 </div>
-                <div class="form">
+                <div class="form" style="overflow-x: auto">
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -244,7 +244,7 @@
     <!-- award -->
     <div class="container">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" style="overflow-x: auto">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <b><h1>Award</h1></b>
                     <a href="{{ route('award.index') }}" class="btn btn-md btn-custom">EDIT</a>
@@ -286,12 +286,12 @@
     <!-- course -->
     <div class="container">
         <div class="card">
-        <div class="card-body">
+        <div class="card-body" style="overflow-x: auto">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <b><h1>Course</h1></b>
                     <a href="{{ route('course.index') }}" class="btn btn-md btn-custom">EDIT</a>
                 </div>
-                <div class="form">
+                <div class="form" style="overflow-x: auto">
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -325,12 +325,12 @@
     <!-- skill -->
     <div class="container">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" style="overflow-x: auto">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <b><h1>Skill</h1></b>
                     <a href="{{ route('skill.index') }}" class="btn btn-md btn-custom">EDIT</a>
                 </div>
-                <div class="form">
+                <div class="form" style="overflow-x: auto">
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>

@@ -83,7 +83,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            
         }
         .step-circle.active, .step-circle.completed {
             background-color: #0056b3;
@@ -117,40 +116,19 @@
 <body>
     <div class="container">
         <div class="steps-container">
-            <div class="step" id="step-1">
-                <div class="step-circle">🎓</div>
-                <div class="step-label">Academic</div>
+            <div class="step active">
+                <div class="step-circle">1</div>
+                <div class="step-label">Step 1</div>
+                <div class="step-line"></div>
             </div>
-            
-            <div class="step" id="step-2">
-                <div class="step-circle">💼</div>
-                <div class="step-label">Job</div>
-                <div class="step-line" id="line-1"></div>
+            <div class="step">
+                <div class="step-circle">2</div>
+                <div class="step-label">Step 2</div>
+                <div class="step-line"></div>
             </div>
-            
-            <div class="step" id="step-3">
-                <div class="step-circle">👜</div>
-                <div class="step-label">Internship</div>
-                <div class="step-line" id="line-2"></div>
-            </div>
-            <div class="step" id="step-4">
-                <div class="step-circle">👥</div>
-                <div class="step-label">Organization</div>
-                <div class="step-line" id="line-3"></div>
-            </div>
-            <div class="step" id="step-5">
-                <div class="step-circle">🏅</div>
-                <div class="step-label">Award</div>
-            <div class="step-line" id="line-4"></div>
-            </div>
-            <div class="step" id="step-6">
-                <div class="step-circle">💡</div>
-                <div class="step-label">Course</div>
-            <div class="step-line" id="line-5"></div>
-            </div>
-            <div class="step" id="step-7">
-                <div class="step-circle">💡</div>
-                <div class="step-label">Skill</div>
+            <div class="step">
+                <div class="step-circle">3</div>
+                <div class="step-label">Step 3</div>
             </div>
         </div>
         
@@ -766,7 +744,9 @@
                 </div>
             </div>
         </div> 
-    </div>
+    </div>    
+
+    <!-- javascript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             let currentStep = 1;
