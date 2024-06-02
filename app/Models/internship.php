@@ -19,7 +19,8 @@ class internship extends Model
         'periode_masuk_intern',
         'periode_keluar_intern',
         'alamat_intern',
-        'link_intern',
+        'lingkup_intern',
+        'bidang_intern',
         'jns_intern',
         'jabatan_intern'
     ];

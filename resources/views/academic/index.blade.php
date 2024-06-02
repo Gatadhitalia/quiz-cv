@@ -31,6 +31,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #FFFFFF;
         }
+        .form{
+            border: 2px solid #FFDFD0;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
         .table th {
             background-color: #0853A6;
             color: #FFFFFF;
@@ -52,58 +58,61 @@
         .table th, .table td {
             vertical-align: middle;
         }
+        h1 {
+            color: #F68955;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-center mb-4">
-            <h3>Form Academic</h3>
-            <hr>
-        </div>
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
+                    <b><h1>Academic</h1></b>
                     <a href="{{ route('academic.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
                 </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">NIM</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">IPK</th>
-                            <th scope="col">Judul Skripsi</th>
-                            <th scope="col">Dosen Wali</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($academics as $academic)
+                <div class="form">
+                    <table class="table table-hover table-bordered">
+                        <thead>
                             <tr>
-                                <td>{{ $academic->nim }}</td>
-                                <td>{{ $academic->nama_mhs }}</td>
-                                <td>{{ $academic->email }}</td>
-                                <td>{{ $academic->ipk }}</td>
-                                <td>{{ $academic->judul_skripsi }}</td>
-                                <td>{{ $academic->dosen_wali }}</td>
-                                <td class="text-center">
-                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('academic.destroy', $academic->id) }}" method="POST">
-                                        <a href="{{ route('academic.show', $academic->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                        <a href="{{ route('academic.edit', $academic->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                    </form>
-                                </td>
+                                <th scope="col">NIM</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">IPK</th>
+                                <th scope="col">Judul Skripsi</th>
+                                <th scope="col">Dosen Wali</th>
+                                <th scope="col">Tahun Lulus</th>
+                                <th scope="col">Aksi</th>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="7" class="text-center alert alert-warning">Data belum Tersedia.</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-                {{ $academics->links() }}                
+                        </thead>
+                        <tbody>
+                            @forelse ($academics as $academic)
+                                <tr>
+                                    <td>{{ $academic->nim }}</td>
+                                    <td>{{ $academic->nama_mhs }}</td>
+                                    <td>{{ $academic->email }}</td>
+                                    <td>{{ $academic->ipk }}</td>
+                                    <td>{{ $academic->judul_skripsi }}</td>
+                                    <td>{{ $academic->dosen_wali }}</td>
+                                    <td>{{ $academic->tahun_lulus }}</td>
+                                    <td class="text-center">
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('academic.destroy', $academic->id) }}" method="POST">
+                                            <a href="{{ route('academic.edit', $academic->id) }}" class="btn btn-sm btn-primary m-2">EDIT</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="8" class="text-center alert alert-warning">Data belum Tersedia.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                    {{ $academics->links() }}   
+                </div>             
             </div>
             
         </div>

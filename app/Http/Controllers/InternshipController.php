@@ -56,7 +56,8 @@ class InternshipController extends Controller
             'periode_masuk_intern'=> 'required',
             'periode_keluar_intern'=> 'required',
             'alamat_intern'=> 'required',
-            'link_intern'=> 'required',
+            'lingkup_intern'=> 'required',
+            'bidang_intern'=> 'required',
             'jns_intern'=> 'required',
             'jabatan_intern'=> 'required'
         ]);
@@ -67,7 +68,8 @@ class InternshipController extends Controller
             'periode_masuk_intern' => $request->periode_masuk_intern,
             'periode_keluar_intern' => $request->periode_keluar_intern,
             'alamat_intern' => $request->alamat_intern,
-            'link_intern' => $request->link_intern,
+            'lingkup_intern' => $request->lingkup_intern,
+            'bidang_intern'=> $request->bidang_intern,
             'jns_intern' => $request->jns_intern,
             'jabatan_intern' => $request->jabatan_intern
         ]);
@@ -76,20 +78,6 @@ class InternshipController extends Controller
         return redirect()->route('internship.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    /**
-     * show
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function show(string $id): View
-    {
-        //get post by ID
-        $internship = internship::findOrFail($id);
-
-        //render view with post
-        return view('internship.show', compact('internship'));
-    }
     /**
      * edit
      *
@@ -120,7 +108,8 @@ class InternshipController extends Controller
             'periode_masuk_intern'=> 'required',
             'periode_keluar_intern'=> 'required',
             'alamat_intern'=> 'required',
-            'link_intern'=> 'required',
+            'lingkup_intern'=> 'required',
+            'bidang_intern'=> 'required',
             'jns_intern'=> 'required',
             'jabatan_intern'=> 'required'
         ]);
@@ -133,7 +122,8 @@ class InternshipController extends Controller
                 'periode_masuk_intern' => $request->periode_masuk_intern,
                 'periode_keluar_intern' => $request->periode_keluar_intern,
                 'alamat_intern' => $request->alamat_intern,
-                'link_intern' => $request->link_intern,
+                'lingkup_intern' => $request->lingkup_intern,
+                'bidang_intern'=> $request->bidang_intern,
                 'jns_intern' => $request->jns_intern,
                 'jabatan_intern' => $request->jabatan_intern
         ]);

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('periode_masuk_intern');            
             $table->string('periode_keluar_intern');
             $table->longText('alamat_intern');
-            $table->string('link_intern');
+            $table->string('lingkup_intern');
+            $table->string('bidang_intern');
             $table->string('jns_intern');
             $table->string('jabatan_intern');
             $table->timestamps();

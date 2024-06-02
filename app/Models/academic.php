@@ -20,6 +20,7 @@ class academic extends Model
         'email',
         'ipk',
         'judul_skripsi',
-        'dosen_wali'
+        'dosen_wali',
+        'tahun_lulus'
     ];
 }

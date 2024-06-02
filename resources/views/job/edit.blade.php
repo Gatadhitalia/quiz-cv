@@ -82,29 +82,29 @@
                                 </div>
 
                                 <div class="form-group">
-                                <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Periode (MM/YYYY)</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control @error('periode_masuk_job') is-invalid @enderror" name="periode_masuk_job" value="{{ old('periode_masuk_job',$job->periode_masuk_job) }}" placeholder="Masukkan Periode Masuk Pekerjaan"> 
-                                    </div>  
-                                    <label class="col-sm-1 col-form-label">Sampai</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control @error('periode_keluar_job') is-invalid @enderror" name="periode_keluar_job" value="{{ old('periode_keluar_job',$job->periode_keluar_job) }}" placeholder="Masukkan Periode Keluar Pekerjaan">
-                                    </div>                                     
-                                </div>                       
-                                <!-- error message untuk periode_masuk_job -->
-                                @error('periode_masuk_job')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                                <!-- error message untuk periode_keluar_job -->
-                                @error('periode_keluar_job')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+                                    <div class="row mb-3">
+                                        <label class="col-sm-3 col-form-label">Periode (MM/YYYY)</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control @error('periode_masuk_job') is-invalid @enderror" name="periode_masuk_job" value="{{ old('periode_masuk_job',$job->periode_masuk_job) }}" placeholder="Masukkan Periode Masuk Pekerjaan"> 
+                                        </div>  
+                                        <label class="col-sm-1 col-form-label">Sampai</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control @error('periode_keluar_job') is-invalid @enderror" name="periode_keluar_job" value="{{ old('periode_keluar_job',$job->periode_keluar_job) }}" placeholder="Masukkan Periode Keluar Pekerjaan">
+                                        </div>                                     
+                                    </div>                       
+                                    <!-- error message untuk periode_masuk_job -->
+                                    @error('periode_masuk_job')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    <!-- error message untuk periode_keluar_job -->
+                                    @error('periode_keluar_job')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                                 
                                 <div class="form-group">
                                     <div class="row mb-3">
@@ -123,13 +123,37 @@
 
                                 <div class="form-group">
                                     <div class="row mb-3">
-                                        <label class="col-sm-3 col-form-label">Tautan/Website</label>
-                                        <div class="col-sm-9">       
-                                            <input type="text" class="form-control @error('link_job') is-invalid @enderror" name="link_job" value="{{ old('link_job',$job->link_job) }}" placeholder="Masukkan Tautan/website Instansi"> 
+                                        <label class="col-sm-3 col-form-label">Lingkup Pekerjaan</label>
+                                        <div class="col-sm-9">
+                                        <select class="selectpicker form-control" data-live-search="true" name="lingkup_job" value="{{ old('lingkup_job',$job->lingkup_job) }}">
+                                                <option selected disabled>Pilih Lingkup Pekerjaan</option>
+                                                <option value="Internasional" {{ $job->lingkup_job == 'Internasional' ? 'selected' : '' }}>Internasional</option>
+                                                <option value="Nasional" {{ $job->lingkup_job == 'Nasional' ? 'selected' : '' }}>Nasional</option>
+                                                <option value="Wirausaha" {{ $job->lingkup_job == 'Wirausaha' ? 'selected' : '' }}>Wirausaha</option>
+                                            </select>
                                         </div>  
                                     </div>  
-                                    <!-- error message untuk link_job -->
-                                    @error('link_job')
+                                    <!-- error message untuk lingkup_job -->
+                                    @error('lingkup_job')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row mb-3">
+                                        <label class="col-sm-3 col-form-label">Bidang Pekerjaan</label>
+                                        <div class="col-sm-9">
+                                        <select class="selectpicker form-control" data-live-search="true" name="bidang_job" value="{{ old('bidang_job',$job->bidang_job) }}">
+                                                <option selected disabled>Pilih Bidang Pekerjaan</option>
+                                                <option value="Infokom" {{ $job->bidang_job == 'Infokom' ? 'selected' : '' }}>Infokom</option>
+                                                <option value="Non Infokom" {{ $job->bidang_job == 'Non Infokom' ? 'selected' : '' }}>Non Infokom</option>
+                                            </select>
+                                        </div>  
+                                    </div>  
+                                    <!-- error message untuk bidang_job -->
+                                    @error('bidang_job')
                                         <div class="alert alert-danger mt-2">
                                             {{ $message }}
                                         </div>

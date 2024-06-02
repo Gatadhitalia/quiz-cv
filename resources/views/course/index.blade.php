@@ -31,6 +31,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #FFFFFF;
         }
+        .form{
+            border: 2px solid #FFDFD0;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
         .table th {
             background-color: #0853A6;
             color: #FFFFFF;
@@ -52,53 +58,54 @@
         .table th, .table td {
             vertical-align: middle;
         }
+        h1 {
+            color: #F68955;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-center mb-4">
-            <h3>Form Course</h3>
-            <hr>
-        </div>
         <div class="card">
-        <div class="card-body">
+            <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
+                    <b><h1>Course</h1></b>
                     <a href="{{ route('course.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
                 </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nama Course</th>
-                            <th scope="col">Nama Institusi Course</th>
-                            <th scope="col">Tingkat Course</th>
-                            <th scope="col">Tahun Course</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($courses as $course)
+                <div class="form">
+                    <table class="table table-hover table-bordered">
+                        <thead>
                             <tr>
-                                <td>{{ $course->nama_course }}</td>
-                                <td>{{ $course->institusi_course }}</td>
-                                <td>{{ $course->tingkat_course }}</td>
-                                <td>{{ $course->tahun_course }}</td>
-                                <td class="text-center">
-                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('course.destroy', $course->id) }}" method="POST">
-                                        <a href="{{ route('course.show', $course->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                        <a href="{{ route('course.edit', $course->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                    </form>
-                                </td>
+                                <th scope="col">Nama Course</th>
+                                <th scope="col">Nama Institusi Course</th>
+                                <th scope="col">Tingkat Course</th>
+                                <th scope="col">Tahun Course</th>
+                                <th scope="col">Aksi</th>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center alert alert-warning">Data belum Tersedia.</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @forelse ($courses as $course)
+                                <tr>
+                                    <td>{{ $course->nama_course }}</td>
+                                    <td>{{ $course->institusi_course }}</td>
+                                    <td>{{ $course->tingkat_course }}</td>
+                                    <td>{{ $course->tahun_course }}</td>
+                                    <td class="text-center">
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('course.destroy', $course->id) }}" method="POST">
+                                            <a href="{{ route('course.edit', $course->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center alert alert-warning">Data belum Tersedia.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
                 {{ $courses->links() }}                
             </div>
         </div>

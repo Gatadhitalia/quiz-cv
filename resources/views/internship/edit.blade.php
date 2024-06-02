@@ -123,13 +123,37 @@
 
                             <div class="form-group">
                                 <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Tautan/Website</label>
+                                    <label class="col-sm-3 col-form-label">Lingkup Pekerjaan</label>
                                     <div class="col-sm-9">
-                                    <input type="text" class="form-control @error('link_intern') is-invalid @enderror" name="link_intern" value="{{ old('link_intern',$internship->link_intern) }}" placeholder="Masukkan Tautan/website Instansi">
+                                    <select class="selectpicker form-control" data-live-search="true" name="lingkup_intern" value="{{ old('lingkup_intern',$internship->lingkup_intern) }}">
+                                            <option selected disabled>Pilih Lingkup Pekerjaan</option>
+                                            <option value="Internasional" {{ $internship->lingkup_intern == 'Internasional' ? 'selected' : '' }}>Internasional</option>
+                                            <option value="Nasional" {{ $internship->lingkup_intern == 'Nasional' ? 'selected' : '' }}>Nasional</option>
+                                            <option value="Wirausaha" {{ $internship->lingkup_intern == 'Wirausaha' ? 'selected' : '' }}>Wirausaha</option>
+                                        </select>
                                     </div>  
                                 </div>  
-                                <!-- error message untuk link_intern -->
-                                @error('link_intern')
+                                <!-- error message untuk lingkup_intern -->
+                                @error('lingkup_intern')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Bidang Pekerjaan</label>
+                                    <div class="col-sm-9">
+                                    <select class="selectpicker form-control" data-live-search="true" name="bidang_intern" value="{{ old('bidang_intern',$internship->bidang_intern) }}">
+                                            <option selected disabled>Pilih Bidang Pekerjaan</option>
+                                            <option value="Infokom" {{ $internship->bidang_intern == 'Infokom' ? 'selected' : '' }}>Infokom</option>
+                                            <option value="Non Infokom" {{ $internship->bidang_intern == 'Non Infokom' ? 'selected' : '' }}>Non Infokom</option>
+                                        </select>
+                                    </div>  
+                                </div>  
+                                <!-- error message untuk bidang_intern -->
+                                @error('bidang_intern')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>

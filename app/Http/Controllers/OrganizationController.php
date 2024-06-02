@@ -75,20 +75,6 @@ class OrganizationController extends Controller
     }
 
     /**
-     * show
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function show(string $id): View
-    {
-        //get post by ID
-        $organization = organization::findOrFail($id);
-
-        //render view with post
-        return view('organization.show', compact('organization'));
-    }
-    /**
      * edit
      *
      * @param  mixed $id

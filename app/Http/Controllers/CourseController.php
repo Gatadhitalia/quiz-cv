@@ -71,20 +71,6 @@ class CourseController extends Controller
     }
 
     /**
-     * show
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function show(string $id): View
-    {
-        //get post by ID
-        $course = course::findOrFail($id);
-
-        //render view with post
-        return view('course.show', compact('course'));
-    }
-    /**
      * edit
      *
      * @param  mixed $id

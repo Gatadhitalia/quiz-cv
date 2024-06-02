@@ -149,6 +149,19 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <div class="row mb-3">
+                                        <label for="tahun_lulus" class="col-sm-3 col-form-label">Tahun Lulus</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control @error('tahun_lulus') is-invalid @enderror" name="tahun_lulus" value="{{ old('tahun_lulus') }}" placeholder="Masukkan Tahun Lulus Mahasiswa" id="tahun_lulus" min="1900" max="2024" step="1">
+                                            </div>
+                                    </div>   
+                                    @error('tahun_lulus')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                                 <div class="d-flex justify-content-end mt-5">
                                     <button type="reset" class="btn btn-md btn-warning-custom mr-2">RESET</button>
                                     <button type="submit" class="btn btn-md btn-custom">SIMPAN</button>

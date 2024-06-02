@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class job extends Model
+class skill extends Model
 {
     use HasFactory;
 
@@ -15,13 +15,12 @@ class job extends Model
      * @var array
      */
     protected $fillable = [
-        'nama_job',
-        'periode_masuk_job',
-        'periode_keluar_job',
-        'alamat_job',
-        'lingkup_job',
-        'bidang_job',
-        'jns_job',
-        'jabatan_job',
+        'kerjasama_skill',
+        'ahli_skill',
+        'inggris_skill',
+        'komunikasi_skill',
+        'pengembangan_skill',
+        'kepemimpinan_skill',
+        'etoskerja_skill'
     ];
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double('ipk');
             $table->longText('judul_skripsi');
             $table->string('dosen_wali');
+            $table->integer('tahun_lulus');
             $table->timestamps();
         });
     }

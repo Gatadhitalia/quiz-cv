@@ -56,7 +56,8 @@ class jobController extends Controller
             'periode_masuk_job'=> 'required',
             'periode_keluar_job'=> 'required',
             'alamat_job'=> 'required',
-            'link_job'=> 'required',
+            'lingkup_job'=> 'required',
+            'bidang_job'=> 'required',
             'jns_job'=> 'required',
             'jabatan_job'=> 'required'
         ]);
@@ -67,7 +68,8 @@ class jobController extends Controller
             'periode_masuk_job' => $request->periode_masuk_job,
             'periode_keluar_job' => $request->periode_keluar_job,
             'alamat_job' => $request->alamat_job,
-            'link_job' => $request->link_job,
+            'lingkup_job' => $request->lingkup_job,
+            'bidang_job' => $request->bidang_job,
             'jns_job' => $request->jns_job,
             'jabatan_job' => $request->jabatan_job
         ]);
@@ -76,20 +78,6 @@ class jobController extends Controller
         return redirect()->route('job.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    /**
-     * show
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function show(string $id): View
-    {
-        //get post by ID
-        $job = job::findOrFail($id);
-
-        //render view with post
-        return view('job.show', compact('job'));
-    }
     /**
      * edit
      *
@@ -120,7 +108,8 @@ class jobController extends Controller
             'periode_masuk_job'=> 'required',
             'periode_keluar_job'=> 'required',
             'alamat_job'=> 'required',
-            'link_job'=> 'required',
+            'lingkup_job'=> 'required',
+            'bidang_job'=> 'required',
             'jns_job'=> 'required',
             'jabatan_job'=> 'required'
         ]);
@@ -133,7 +122,8 @@ class jobController extends Controller
                 'periode_masuk_job' => $request->periode_masuk_job,
                 'periode_keluar_job' => $request->periode_keluar_job,
                 'alamat_job' => $request->alamat_job,
-                'link_job' => $request->link_job,
+                'lingkup_job' => $request->lingkup_job,
+                'bidang_job' => $request->bidang_job,
                 'jns_job' => $request->jns_job,
                 'jabatan_job' => $request->jabatan_job
         ]);

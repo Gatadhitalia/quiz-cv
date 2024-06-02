@@ -73,20 +73,6 @@ class AwardController extends Controller
     }
 
     /**
-     * show
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function show(string $id): View
-    {
-        //get post by ID
-        $award = award::findOrFail($id);
-
-        //render view with post
-        return view('award.show', compact('award'));
-    }
-    /**
      * edit
      *
      * @param  mixed $id

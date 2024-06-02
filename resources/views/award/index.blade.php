@@ -31,6 +31,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #FFFFFF;
         }
+        .form{
+            border: 2px solid #FFDFD0;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
         .table th {
             background-color: #0853A6;
             color: #FFFFFF;
@@ -52,55 +58,56 @@
         .table th, .table td {
             vertical-align: middle;
         }
+        h1 {
+            color: #F68955;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-center mb-4">
-            <h3>Form Award</h3>
-            <hr>
-        </div>
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <a href="{{ route('award.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
+                <b><h1>Award</h1></b>    
+                <a href="{{ route('award.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
                 </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nama Award</th>
-                            <th scope="col">Nama Institusi Award</th>
-                            <th scope="col">Tingkat Award</th>
-                            <th scope="col">Tahun Award</th>
-                            <th scope="col">Deskripsi Award</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($awards as $award)
-                        <tr>
-                            <td>{{ $award->nama_award }}</td>
-                            <td>{{ $award->institusi_award }}</td>
-                            <td>{{ $award->tingkat_award }}</td>
-                            <td>{{ $award->tahun_award }}</td>
-                            <td>{{ $award->deskripsi_award }}</td>
-                            <td class="text-center">
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('award.destroy', $award->id) }}" method="POST">
-                                    <a href="{{ route('award.show', $award->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                    <a href="{{ route('award.edit', $award->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                </form>
-                            </td>
-                        </tr>
-                        @empty
+                <div class="form">
+                    <table class="table table-hover table-bordered">
+                        <thead>
                             <tr>
-                                <td colspan="6" class="text-center alert alert-warning">Data belum Tersedia.</td>
+                                <th scope="col">Nama Award</th>
+                                <th scope="col">Nama Institusi Award</th>
+                                <th scope="col">Tingkat Award</th>
+                                <th scope="col">Tahun Award</th>
+                                <th scope="col">Deskripsi Award</th>
+                                <th scope="col">Aksi</th>
                             </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @forelse ($awards as $award)
+                            <tr>
+                                <td>{{ $award->nama_award }}</td>
+                                <td>{{ $award->institusi_award }}</td>
+                                <td>{{ $award->tingkat_award }}</td>
+                                <td>{{ $award->tahun_award }}</td>
+                                <td>{{ $award->deskripsi_award }}</td>
+                                <td class="text-center">
+                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('award.destroy', $award->id) }}" method="POST">
+                                        <a href="{{ route('award.edit', $award->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6" class="text-center alert alert-warning">Data belum Tersedia.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
                 {{ $awards->links() }}                
             </div>
             

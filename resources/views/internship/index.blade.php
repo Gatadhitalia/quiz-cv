@@ -31,6 +31,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #FFFFFF;
         }
+        .form{
+            border: 2px solid #FFDFD0;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
         .table th {
             background-color: #0853A6;
             color: #FFFFFF;
@@ -52,60 +58,62 @@
         .table th, .table td {
             vertical-align: middle;
         }
+        h1 {
+            color: #F68955;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-center mb-4">
-            <h3>Form Internship</h3>
-            <hr>
-        </div>
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
+                    <b><h1>Internship</h1></b>    
                     <a href="{{ route('internship.create') }}" class="btn btn-md btn-custom">TAMBAH POST</a>
                 </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nama Instansi</th>
-                            <th scope="col">Periode</th>
-                            <th scope="col">Alamat Instansi</th>                               
-                            <th scope="col">Website</th>
-                            <th scope="col">Jenis Pekerjaan</th>
-                            <th scope="col">Jabatan</th>           
-                            <th scope="col">Aksi</th>    
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($internships as $internship)
+                <div class="form">
+                    <table class="table table-hover table-bordered">
+                        <thead>
                             <tr>
-                                <td>{{ $internship->nama_intern }}</td>
-                                <td>{{ $internship->periode_masuk_intern }} / {{ $internship->periode_keluar_intern }}</td>
-                                <td>{{ $internship->alamat_intern }}</td>
-                                <td>{{ $internship->link_intern }}</td>
-                                <td>{{ $internship->jns_intern }}</td>
-                                <td>{{ $internship->jabatan_intern }}</td>
-                                <td class="text-center">
-                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('internship.destroy', $internship->id) }}" method="POST">
-                                        <a href="{{ route('internship.show', $internship->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                        <a href="{{ route('internship.edit', $internship->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                    </form>
-                                </td>
+                                <th scope="col">Nama Instansi</th>
+                                <th scope="col">Periode</th>
+                                <th scope="col">Alamat Instansi</th>                               
+                                <th scope="col">Lingkup Pekerjaan</th>                        
+                                <th scope="col">Bidang Pekerjaan</th>
+                                <th scope="col">Jenis Pekerjaan</th>
+                                <th scope="col">Jabatan</th>           
+                                <th scope="col">Aksi</th>    
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="7" class="text-center alert alert-warning">Data belum Tersedia.</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @forelse ($internships as $internship)
+                                <tr>
+                                    <td>{{ $internship->nama_intern }}</td>
+                                    <td>{{ $internship->periode_masuk_intern }} / {{ $internship->periode_keluar_intern }}</td>
+                                    <td>{{ $internship->alamat_intern }}</td>
+                                    <td>{{ $internship->lingkup_intern }}</td>
+                                    <td>{{ $internship->bidang_intern }}</td>
+                                    <td>{{ $internship->jns_intern }}</td>
+                                    <td>{{ $internship->jabatan_intern }}</td>
+                                    <td class="text-center">
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('internship.destroy', $internship->id) }}" method="POST">
+                                            <a href="{{ route('internship.edit', $internship->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="8" class="text-center alert alert-warning">Data belum Tersedia.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
                 {{ $internships->links() }}                
             </div>
-            
         </div>
     </div>
     <script>

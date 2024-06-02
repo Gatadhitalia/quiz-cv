@@ -57,7 +57,8 @@ class academicController extends Controller
             'email'=> 'required',
             'ipk'=> 'required',
             'judul_skripsi'=> 'required',
-            'dosen_wali'=> 'required'
+            'dosen_wali'=> 'required',
+            'tahun_lulus' => 'required'
         ]);
 
         //create post
@@ -67,27 +68,14 @@ class academicController extends Controller
             'email' => $request->email,
             'ipk' => $request->ipk,
             'judul_skripsi' => $request->judul_skripsi,
-            'dosen_wali' => $request->dosen_wali
+            'dosen_wali' => $request->dosen_wali,
+            'tahun_lulus' => $request->tahun_lulus
         ]);
 
         //redirect to index
         return redirect()->route('academic.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    /**
-     * show
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function show(string $id): View
-    {
-        //get post by ID
-        $academic = academic::findOrFail($id);
-
-        //render view with post
-        return view('academic.show', compact('academic'));
-    }
     /**
      * edit
      *
@@ -119,7 +107,8 @@ class academicController extends Controller
             'email'=> 'required',
             'ipk'=> 'required',
             'judul_skripsi'=> 'required',
-            'dosen_wali'=> 'required'
+            'dosen_wali'=> 'required',
+            'tahun_lulus' => 'required'
         ]);
 
         //get post by ID
@@ -131,7 +120,8 @@ class academicController extends Controller
             'email' => $request->email,
             'ipk' => $request->ipk,
             'judul_skripsi' => $request->judul_skripsi,
-            'dosen_wali' => $request->dosen_wali
+            'dosen_wali' => $request->dosen_wali,
+            'tahun_lulus' => $request->tahun_lulus
         ]);
 
         //redirect to index
